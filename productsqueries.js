@@ -31,6 +31,7 @@ db.products.find({product_material:"Soft"})
 //9. Find products which contain product color indigo  and product price 492.00
 db.products.find({$and:[{product_color:'Indigo'},{product_price:492.0}]})
 
+
 //10. Delete the products which product price value are same
 
 
@@ -38,6 +39,5 @@ db.products.aggregate(   [ {   $group: { _id: "$product_price", samevalue: { $pu
  count: { $sum: 1 } }, },  { $match: { count: { $gt: 1 } } }, ] )
 
 
-db.products.aggregate([ { $project:{  product_name:1,  product_material:1 }}]).toArray()
 
   
