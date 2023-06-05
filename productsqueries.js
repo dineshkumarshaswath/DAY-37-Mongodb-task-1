@@ -37,6 +37,7 @@ db.products.find({$and:[{product_color:'Indigo'},{product_price:492.0}]})
 
 db.products.aggregate(   [ {   $group: { _id: "$product_price", samevalue: { $push: "$_id" },
  count: { $sum: 1 } }, },  { $match: { count: { $gt: 1 } } }, ] )
+ 
 
 
 
